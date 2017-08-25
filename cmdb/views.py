@@ -28,9 +28,9 @@ def index(request):
         password = request.POST.get("password",None)
         print(username,password)
         #添加数据到数据库,将从用户接受的数据保存到数据库
-    #     modules.UserInfo.objects.create()
-    # #从数据库读取所有数据,从数据库读取所有行
-    # user_list = modules.UserInfo.objects.all()
+        models.UserInfo.objects.create(user=username,pwd=password)
+    #从数据库读取所有数据,从数据库读取所有行
+    user_list = models.UserInfo.objects.all()
     # return HttpResponse("hello world!")
     # 第一个参数是固定的，第二个参数是我指定的文件
     # 动态页面中，第三个参数是关键,render方法接收第三参数是后台返回给浏览器的数据，
