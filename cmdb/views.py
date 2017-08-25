@@ -27,7 +27,7 @@ def index(request):
         username = request.POST.get("username",None)
         password = request.POST.get("password",None)
         print(username,password)
-        #添加数据到数据库,将从用户接受的数据保存到数据库
+        #添加数据到数据库,将从用户接受的数据保存到数据库;
         models.UserInfo.objects.create(user=username,pwd=password)
     #从数据库读取所有数据,从数据库读取所有行
     user_list = models.UserInfo.objects.all()
