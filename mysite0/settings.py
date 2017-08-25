@@ -37,13 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap_toolkit',#添加bootstrap框架
+    'cmdb',#创建数据库连接时注册app,不注册数据库不知道数据该给哪个app创建表
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',#django安全机制之一禁止跨站方访问请求，注释掉
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -75,8 +77,8 @@ WSGI_APPLICATION = 'mysite0.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.sqlite3',#只顶数据库类型,例如sqlite3,mysql等
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),#django自带sqlite3
     }
 }
 
@@ -124,4 +126,4 @@ STATICFILES_DIRS=(#固定的全局变量名,复制一个元组
 )
 
 
-TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+# TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)

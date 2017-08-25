@@ -5,9 +5,35 @@
     <title>Title</title>
 </head>
 <body>
-    <h1 style="...">hello world!</h1>
+    <h1 style="...">用户输入</h1>
+    <form action="/index/" method="post">
+        <input type="text" name = "username"/>
+        <input type="password" name = "password"/>
+        <input type="submit" value="提交"/>
+    </form>
+    <hr/>
+    <!--
+    django采用jinja2作为html页面内容替换的引擎。
+    他是一种特殊的语言，有自己的语法。
+    -->
+    <h1 style="...">用户展示</h1>
+    <table border="1">
+        <thead>
+            <th>用户名</th>
+            <th>密码</th>
+        </thead>
+        <tbody>
+            <!--jinga2中的for循环生成动态表格-->
+            {% for line in data %}<!--data是views中传递过来的第三个参数中的key-->
+                <tr>
+                    <td>{{ line.user }}</td>
+                    <td>{{ line.pwd }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     <!--script--在html中引用静态目录的CSS/JS/PLUGINS/IMAGS>
     static--这个是在settings文件中的那个引用字符串,不是目录里的static目录名-->
-    <script src="/static/js/jquery-1.12.4.js"></script>
+    <script src="/static/js/jquery-3.2.1.min.js"></script>
 </body>
 </html>
