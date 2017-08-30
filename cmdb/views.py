@@ -12,7 +12,7 @@ user_list = [
 ]
 
 
-def index(request):
+def index0(request):
     '''
     通过index指向了url里views里的index()函数
     #request.POST
@@ -35,4 +35,4 @@ def index(request):
     # 第一个参数是固定的，第二个参数是我指定的文件
     # 动态页面中，第三个参数是关键,render方法接收第三参数是后台返回给浏览器的数据，
     # 谈事一个字典，data是定义的指针名，回本对应的html引用
-    return render(request,"index.html",{"data":user_list})
+    return render(request,"index0.html",{"data":user_list})
